@@ -9,8 +9,6 @@ import SwiftUI
 import Combine
 
 public struct StockListItem: View {
-    public var publisher        : PassthroughSubject<String, Never> = PassthroughSubject()
-    
     @State
     var reloadCell              : Bool                              = false
     
@@ -19,10 +17,13 @@ public struct StockListItem: View {
     public let symbol           : String
     public let name             : String
     
-    public init(symbol: String, name: String, hideFavoriteIcon: Bool) {
+    public let favoriteCallback : (String) -> Void
+    
+    public init(symbol: String, name: String, hideFavoriteIcon: Bool, favoriteCallback: @escaping (String) -> Void) {
         self.symbol             = symbol
         self.name               = name
         self.hideFavoriteIcon   = hideFavoriteIcon
+        self.favoriteCallback   = favoriteCallback
     }
     
     public var body: some View {
@@ -51,7 +52,7 @@ public struct StockListItem: View {
                     .padding(.leading, 15)
                     .onTapGesture {
                         self.reloadCell.toggle()
-                        self.publisher.send(symbol)
+                        self.favoriteCallback(self.symbol)
                     }
             }
         }

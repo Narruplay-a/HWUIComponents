@@ -44,7 +44,7 @@ public struct StockListItem: View {
                     .font(.system(.headline))
             }
             
-            if !hideFavoriteIcon.wrappedValue {
+            if !hideFavoriteIcon {
                 Image("star_icon")
                     .resizable()
                     .frame(width: 30, height: 30)

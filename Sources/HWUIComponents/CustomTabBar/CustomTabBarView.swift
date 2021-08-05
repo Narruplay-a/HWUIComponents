@@ -8,8 +8,10 @@
 import SwiftUI
 
 public struct CustomTabBarView: View {
-    @ObservedObject var model: CustomTabBarModel
-    @State var showView: Bool = false
+    @ObservedObject
+    public var model    : CustomTabBarModel
+    @State
+    public var showView : Bool              = false
 
     public var body: some View {
         ZStack {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct TickerTempView: View {
-    private let symbol: String
+    public let symbol: String
     
     public init(name: String) {
         symbol = String(name.first ?? "!")

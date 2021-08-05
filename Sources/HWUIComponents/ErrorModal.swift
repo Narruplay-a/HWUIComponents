@@ -8,8 +8,11 @@
 import SwiftUI
 
 public struct ErrorModal: View {
-    @Binding
-    public var shouldShowModal: Bool
+    public var shouldShowModal: Binding<Bool>
+    
+    public init(shouldShowModal: Binding<Bool>) {
+        self.shouldShowModal = shouldShowModal
+    }
     
     public var body: some View {
         VStack {
@@ -20,7 +23,7 @@ public struct ErrorModal: View {
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .background(Color.gray.opacity(0.98))
         .onTapGesture {
-            shouldShowModal = false
+            shouldShowModal.wrappedValue = false
         }
     }
 }

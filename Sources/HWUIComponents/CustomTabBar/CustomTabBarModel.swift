@@ -9,13 +9,13 @@ import SwiftUI
 import Combine
 
 public final class CustomTabBarModel: ObservableObject {
-    public var viewToPresentSubject: PassthroughSubject = PassthroughSubject<AnyView?, Never>()
-    public var viewToPresent: AnyView?
+    public var viewToPresentSubject : PassthroughSubject    = PassthroughSubject<AnyView?, Never>()
+    public var viewToPresent        : AnyView?
     
     @Published
-    public var selectedIndex: Int
+    public var selectedIndex        : Int
     @Published
-    public var isTabBarVisible = true
+    public var isTabBarVisible      : Bool                  = true
     @Published
     public var screens: [TabScreen]
     public var currentScreen: AnyView {
@@ -25,8 +25,8 @@ public final class CustomTabBarModel: ObservableObject {
     }
     
     public init(screens: [TabScreen], selectedIndex: Int = 0) {
-        self.screens = screens
-        self.selectedIndex = selectedIndex
+        self.screens        = screens
+        self.selectedIndex  = selectedIndex
         
         if screens.count == 1  {
             isTabBarVisible = false
@@ -34,9 +34,9 @@ public final class CustomTabBarModel: ObservableObject {
     }
     
     public func updateScreens(screens: [TabScreen], selectedIndex: Int = 0, isTabBarVisible: Bool) {
-        self.screens = screens
-        self.selectedIndex = selectedIndex
-        self.isTabBarVisible = isTabBarVisible
+        self.screens            = screens
+        self.selectedIndex      = selectedIndex
+        self.isTabBarVisible    = isTabBarVisible
     }
     
     public func selectTab(for index: Int) {

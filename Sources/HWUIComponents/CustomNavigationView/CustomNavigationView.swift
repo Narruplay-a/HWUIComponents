@@ -10,7 +10,7 @@ import Combine
 
 public struct CustomNavigationView<Content>: View where Content: View {
     @ObservedObject
-    public var model: CustomNavigationViewModel
+    public var model                : CustomNavigationViewModel
 
     private let navigationBarHeight : CGFloat = 80
     private let transitions         : (push: AnyTransition, pop: AnyTransition)

@@ -13,6 +13,10 @@ public struct CustomTabBarView: View {
     @State
     public var showView : Bool              = false
 
+    public init(model: CustomTabBarModel) {
+        self.model = model
+    }
+    
     public var body: some View {
         ZStack {
             if !model.isTabBarVisible {

@@ -13,11 +13,17 @@ public struct StockListItem: View {
     
     @State
     var reloadCell              : Bool                              = false
-    @Binding
-    public var hideFavoriteIcon : Bool
+    
+    public var hideFavoriteIcon : Binding<Bool>
 
     public let symbol           : String
     public let name             : String
+    
+    init(symbol: String, name: String, hideFavoriteIcon: Binding<Bool>) {
+        self.symbol             = symbol
+        self.name               = name
+        self.hideFavoriteIcon   = hideFavoriteIcon
+    }
     
     public var body: some View {
         HStack() {
@@ -38,7 +44,7 @@ public struct StockListItem: View {
                     .font(.system(.headline))
             }
             
-            if !hideFavoriteIcon {
+            if !hideFavoriteIcon.wrappedValue {
                 Image("star_icon")
                     .resizable()
                     .frame(width: 30, height: 30)

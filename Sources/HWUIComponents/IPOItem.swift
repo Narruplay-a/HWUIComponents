@@ -11,6 +11,11 @@ public struct IPOItem: View {
     public let symbol  : String
     public let date    : String
     
+    public init(symbol: String, date: String) {
+        self.symbol = symbol
+        self.date   = date
+    }
+    
     public var body: some View {
         HStack() {
             VStack(alignment: .leading, spacing: 10) {

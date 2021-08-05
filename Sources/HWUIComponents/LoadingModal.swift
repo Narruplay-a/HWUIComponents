@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct LoadingModal: View {
+    public init() {}
+    
     public var body: some View {
         VStack {
             ProgressView()

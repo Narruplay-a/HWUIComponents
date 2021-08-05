@@ -19,7 +19,7 @@ public struct StockListItem: View {
     public let symbol           : String
     public let name             : String
     
-    init(symbol: String, name: String, hideFavoriteIcon: Binding<Bool>) {
+    public init(symbol: String, name: String, hideFavoriteIcon: Binding<Bool>) {
         self.symbol             = symbol
         self.name               = name
         self.hideFavoriteIcon   = hideFavoriteIcon

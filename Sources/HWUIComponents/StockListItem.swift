@@ -14,12 +14,12 @@ public struct StockListItem: View {
     @State
     var reloadCell              : Bool                              = false
     
-    public var hideFavoriteIcon : Binding<Bool>
+    public var hideFavoriteIcon : Bool
 
     public let symbol           : String
     public let name             : String
     
-    public init(symbol: String, name: String, hideFavoriteIcon: Binding<Bool>) {
+    public init(symbol: String, name: String, hideFavoriteIcon: Bool) {
         self.symbol             = symbol
         self.name               = name
         self.hideFavoriteIcon   = hideFavoriteIcon
